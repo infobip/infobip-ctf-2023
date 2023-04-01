@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sandworms</title>
+		<style>
+			#header {
+				width: 100%;
+				height: 30px;
+			}
+
+			#container {
+				width: 1000px;
+				margin: auto;
+			}
+			#left {
+				width: 500px;
+				float: left;
+				height: 500px;
+			}
+			#right {
+				width: 500px;
+				float: left;
+				height: 500px;
+			}
+			#clear {
+				clear: both;
+			}
+			textarea {
+				width: 400px;
+				height: 500px;
+			}
+		</style>
+		<script>
+			function runCode(e) {
+				e.preventDefault();
+				const fd = new FormData(document.querySelector("form"));
+				var script = fd.get("script");
+				console.log(script);
+				fetch("/run", {
+					method: "POST",
+          				headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify({"script": script})
+				}).then((response) => {
+					return response.text();
+				}).then((response) => {
+					var result = document.getElementById("output");
+					result.innerHTML = response;
+				}).catch((err) => {
+					alert("error, please contact admin: " + err);
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<div id="header"></div>
+		<div id="container">
+			<div id="left">
+				<form onsubmit="return runCode(event)">
+					<textarea id="script" name="script">
+package main
+
+import "fmt"
+
+func main() {
+	// Put your code here
+}
+					</textarea>
+					<input type="submit" value="Submit"></input>
+				</form>
+			</div>
+			<div id="right">
+				<textarea id="output" name="output"></textarea>
+			</div>
+			<div id="clear"></div>
+		</div>
+		
+		
+	</body>
+</html>

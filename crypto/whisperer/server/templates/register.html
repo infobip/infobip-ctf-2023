@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Register{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form action="/register" method="post">
+	<table class="grow">
+		<tbody>
+			<tr><td>Username:</td><td><input id="username" type="text" name="username"/></td></tr>
+			<tr><td>Password:</td><td><input id="password" type="password" name="password"/></td></tr>
+			<tr><td></td><td><input type="submit" value="Register"/></td></tr>
+			<tr><td colspan=2><small>Already have an account? <a href="/login">Login here</a></small></td></tr>
+		</tbody>
+	</table>
+</form>
+{% endblock %}

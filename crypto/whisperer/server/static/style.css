@@ -1,0 +1,38 @@
+html {
+  font-family: sans-serif;
+  background: #6ECCAF;
+  padding: 1rem;
+}
+
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #6ECCAF;
+  font-size: 16px;
+}
+
+table, th, td {
+  color: #344D67;
+  border: 1px solid black;
+}
+
+h1, h2, h3, h4 {
+  color: #344D67;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  background: #6ECCAF;
+}
+
+.flash {
+  margin: 1em 0;
+  padding: 1em;
+  background: #F3ECB0;
+  border: 1px solid #F3ECB0;
+}
+
+#logout-div {
+  text-align: right;
+}

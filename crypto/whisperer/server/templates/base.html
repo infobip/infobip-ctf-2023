@@ -1,0 +1,15 @@
+<!doctype html>
+<title>Secret whisperer</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<nav>
+<h1><blink><a href="{{ url_for('secrets') }}">Secret whisperer</a></blink></h1>
+</nav>
+<section class="content">
+  <header>
+    {% for message in get_flashed_messages() %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+    {% block header %}{% endblock %}
+  </header>
+  {% block content %}{% endblock %}
+</section>
